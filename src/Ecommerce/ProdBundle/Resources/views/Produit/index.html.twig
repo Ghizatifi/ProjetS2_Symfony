@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<table class="table">
+ <thead> <tr> 
+ <th>ID</th> 
+ <th>Libelle</th>
+ <th>Prix</th>
+ <th>Description</th>
+ <th>Categorie</th>
+ </tr>
+ </thead>
+ <tbody> 
+ {% for prod in produit %}
+ <tr> 
+ <th scope="row">{{prod.id}}</th>
+ <td>{{prod.Libelle}}</td>
+ <td>{{prod.Prix}}</td>
+ <td>{{prod.Description}}</td>
+ <td>{{prod.Categorie}}</td>  
+  <td>
+  <a href="/ProjetS2/web/app_dev.php/Detailproduit" class="btn btn-info">Détail</a>
+  </td> 
+  <td>
+  <a href="/Produit/modif/{{prod.id}}"  class="btn btn-warning">Edit</a>
+  </td>
+  <td>  
+  <a href="/Produit/supp/{{prod.id}}" class="btn btn-danger">Delete</a>
+  </td> 
+ </tr>  
+ {% endfor %}
+ </tbody> 
+ </table>
+{% endblock %}
